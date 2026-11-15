@@ -126,3 +126,56 @@ Test 3 – Large Window
 Conclusion:
 
 The nested BorderLayout and FlowLayout arrangement satisfies the resizing requirement. The centre results area expands while the search and button panels maintain their preferred sizes.
+
+Alternative Concept and Complexity Analysis
+
+Approach 1: Nested BorderLayout and FlowLayout
+
+- Uses separate panels to organise components.
+
+- Automatically adjusts components when the window is resized.
+
+- Maintains a flexible and responsive layout.
+
+- Requires a small number of additional container objects.
+
+Approach 2: GridBagLayout
+
+- Uses constraints to position components in rows and columns.
+
+- Provides more control over component placement and resizing.
+
+- Requires more configuration than BorderLayout and FlowLayout.
+
+- Suitable for complex forms.
+
+Approach 3: Absolute Positioning
+
+- Uses setLayout(null) and setBounds() to position components manually.
+
+- Every component requires fixed coordinates and dimensions.
+
+- Components may overlap or become misaligned when the window is resized.
+
+- It is difficult to maintain across different screen sizes.
+
+Time Complexity:
+
+- Nested layouts: Layout computation is approximately O(n) for n components in a typical layout pass.
+
+- GridBagLayout: Also generally requires processing component constraints, approximately O(n) for a layout pass, with additional constraint calculations.
+
+- Absolute positioning: Assigning bounds is approximately O(n) when processing all components, but does not automatically provide responsive resizing.
+
+Space Complexity:
+
+- Nested layouts: O(n + p), where n is the number of components and p is the number of panels.
+
+- GridBagLayout: O(n + c), where c represents the layout constraints.
+
+- Absolute positioning: O(n) for component references and stored bounds.
+
+Conclusion:
+ 
+Nested BorderLayout and FlowLayout are the best choices for this library screen because they provide simple organisation and responsive resizing. Absolute 
+positioning is not recommended because it makes resizing difficult.

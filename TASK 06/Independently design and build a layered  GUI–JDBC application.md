@@ -92,7 +92,127 @@ To design and implement a Campus Event Registration Desktop Application using Ja
 
 - The application must remain responsive during database operations.
 
+Registration Screen Design
 
+```mermaid
+
+flowchart TB
+    A["CAMPUS EVENT REGISTRATION"]
+
+    subgraph FORM["STUDENT REGISTRATION FORM"]
+        direction TB
+        B["Student Name"]
+        C["Text Field: Enter Name"]
+        D["Register Number"]
+        E["Text Field: Enter Register Number"]
+        F["Email Address"]
+        G["Text Field: Enter Email"]
+        H["Select Event"]
+        I["Dropdown: Choose Event"]
+        J["REGISTER"]
+        K["CLEAR"]
+    end
+
+    L["Status: Ready"]
+
+    A --> FORM
+    B --> C
+    D --> E
+    F --> G
+    H --> I
+    FORM --> L
+
+    I --> J
+    I --> K
+
+    classDef heading fill:#243B55,color:#ffffff,stroke:#243B55
+    classDef field fill:#EAF2F8,color:#172B4D,stroke:#4472C4
+    classDef button fill:#D5F5E3,color:#145A32,stroke:#239B56
+    classDef status fill:#FCF3CF,color:#7D6608,stroke:#D4AC0D
+
+    class A heading
+    class B,C,D,E,F,G,H,I field
+    class J,K button
+    class L status
+```
+Screen components:
+- Student Name: JTextField
+- Register Number: JTextField
+- Email Address: JTextField
+- Select Event: JComboBox
+- Register: JButton
+- Clear: JButton
+- Status: JLabel
+2. Registration Management Screen
+This screen represents the committee's interface for viewing, filtering and exporting student registrations.
+
+```mermaid
+flowchart TB
+    A["CAMPUS EVENT REGISTRATION MANAGEMENT"]
+
+    subgraph MENU["MENU BAR"]
+        direction LR
+        B["File"]
+        C["View"]
+        D["Help"]
+    end
+
+    subgraph FILTER["EVENT FILTER"]
+        direction LR
+        E["Filter Event"]
+        F["JComboBox: All Events"]
+        G["FILTER"]
+    end
+
+    subgraph TABLE["REGISTRATION DETAILS - JTable"]
+        direction TB
+        H["Register No | Student Name | Email | Event"]
+        I["101 | Arun | arun@gmail.com | Hackathon"]
+        J["102 | Ravi | ravi@gmail.com | Coding"]
+        K["103 | Kumar | kumar@gmail.com | Sports"]
+    end
+
+    subgraph BUTTONS["MANAGEMENT BUTTONS"]
+        direction LR
+        L["PREVIOUS"]
+        M["NEXT"]
+        N["EXPORT CSV"]
+    end
+
+    O["Status: Records Loaded"]
+
+    A --> MENU
+    MENU --> FILTER
+    FILTER --> TABLE
+    TABLE --> BUTTONS
+    BUTTONS --> O
+
+    classDef heading fill:#243B55,color:#ffffff,stroke:#243B55
+    classDef menu fill:#D6EAF8,color:#154360,stroke:#2874A6
+    classDef filter fill:#E8DAEF,color:#512E5F,stroke:#884EA0
+    classDef data fill:#EAF2F8,color:#172B4D,stroke:#4472C4
+    classDef button fill:#D5F5E3,color:#145A32,stroke:#239B56
+    classDef status fill:#FCF3CF,color:#7D6608,stroke:#D4AC0D
+
+    class A heading
+    class B,C,D menu
+    class E,F,G filter
+    class H,I,J,K data
+    class L,M,N button
+    class O status
+```
+
+
+
+Screen components:
+- JFrame: Main application window.
+- JMenuBar: Contains File, View and Help menus.
+- JMenu: Organises menu options.
+- JComboBox: Filters registrations by event.
+- JTable: Displays registration records.
+- JScrollPane: Provides scrolling for the table.
+- JButton: Previous, Next, Export CSV and Filter.
+- JLabel: Displays status messages.
 C. Menu Bar
 
 The application uses JMenuBar and JMenu.
